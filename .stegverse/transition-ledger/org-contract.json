@@ -1,0 +1,38 @@
+{
+  "schema": "stegverse.organization-transition-ledger-contract/v1",
+  "organization": "SV-Co-Pilot",
+  "ledger_level": "ORGANIZATION",
+  "consumes": [
+    "stegverse.repo-transition-receipt/v1",
+    "stegverse.canonical-state-transition-receipt/v1"
+  ],
+  "emits": "stegverse.organization-transition-receipt/v1",
+  "replay_rule": "ORGANIZATION_REPLAY_MUST_REQUIRE_ONLY_VERIFIED_REPO_RECEIPTS_AND_ORG_RECEIPTS_NOT_ECOSYSTEM_REPLAY",
+  "preserves_repo_receipt": true,
+  "append_only_receipts": true,
+  "propagation_target": "master-records/.github",
+  "authority_effect": "NONE_CONTRACT_ONLY",
+  "organization_scope_rule": "EVERY_STATE_TRANSITION_OCCURRING_WITHIN_THE_ORGANIZATION_EMITS_AN_ORGANIZATION_RECEIPT",
+  "preserves_source_transition_receipt": true,
+  "ledger_root_is_organization_runtime_reality_locus": true,
+  "runtime_reality_authority": "Organization",
+  "ledger_lock": "ORGANIZATION_LEDGER_LOCK",
+  "write_mode": "MANIFEST_DIRECTED_APPEND",
+  "propagation_role": "ORGANIZATION_RECORDS_AND_RECONSTRUCTION_ONLY",
+  "propagation_gates_organization_runtime_reality": false,
+  "propagation_receiver_unavailable_disposition": "DURABLE_QUEUE_OR_EVENT_EPHEMERAL_MATERIALIZATION",
+  "always_on_receiver_required": false,
+  "declaration": "ORGANIZATION-ROLE-RUNTIME-REALITY-DEPLOYMENT-001",
+  "organization_ledger": {
+    "store": "git",
+    "ref": "refs/stegverse/organization-ledger",
+    "custody": "PRIVATE",
+    "propagate_target": {
+      "custody": "PRIVATE",
+      "remote": "https://github.com/SV-Co-Pilot/.github"
+    }
+  },
+  "organization_ledger_ref": "refs/stegverse/organization-ledger",
+  "organization_ledger_repository": "SV-Co-Pilot/.github",
+  "organization_ledger_ref_designation_source": "owner designation of SV-Co-Pilot as the bridge Org (BRIDGE_ORG__DESIGNATION__01.md, filed in this repository 2026-11-03) and the owner's build instruction of 2026-11-04: build the same organization ledger for SV-Co-Pilot, adopting the StegVerse-org ledger location structure (organization_ledger_ref refs/stegverse/organization-ledger) as the other Orgs' contracts do"
+}
